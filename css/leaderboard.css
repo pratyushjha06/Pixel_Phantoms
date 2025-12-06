@@ -463,10 +463,59 @@ body.hud-mode {
 
 .hud-table tr {
     transition: background 0.2s;
+    /* Touch-friendly sizing */
+    min-height: 50px;
 }
 
+/* Hover for desktop */
 .hud-table tr:hover {
     background: rgba(0, 243, 255, 0.05);
+}
+
+/* TOUCH-FRIENDLY FIX: Active state for touch devices */
+.hud-table tr:active {
+    background: rgba(0, 243, 255, 0.08);
+    transform: scale(0.995);
+    transition: transform 0.1s ease, background 0.1s ease;
+}
+
+/* Desktop hover only */
+@media (hover: hover) and (pointer: fine) {
+    .hud-table tr:hover {
+        background: rgba(0, 243, 255, 0.05);
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .hud-table tr {
+        padding: 12px 30px;
+        min-height: 55px;
+    }
+    
+    .hud-table tr:active {
+        background: rgba(0, 243, 255, 0.1);
+        transform: scale(0.99);
+    }
+    
+    .hud-table td {
+        padding: 12px 30px;
+    }
+    
+    /* Increase tap target size for touch */
+    .hud-table tr {
+        position: relative;
+    }
+    
+    .hud-table tr::after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+    }
 }
 
 /* Cell Specifics */
@@ -877,13 +926,6 @@ body.hud-mode {
         transform: translateY(0) scale(1);
     }
 }
-
-/*
-    NOTE: The subsequent sections (4. ACHIEVEMENTS VIEW, 5. SETTINGS VIEW, and MODAL STYLES) 
-    are assumed to remain correctly below this section in your leaderboard.css file, 
-    as they were not explicitly part of the Project View.
-*/
-
 
 /* --- 4. ACHIEVEMENTS VIEW --- */
 .achievements-container {
