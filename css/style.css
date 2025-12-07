@@ -2132,3 +2132,102 @@ body.mobile-menu-open {
         animation: none !important;
     }
 }
+
+/* =========================================
+   ACCESSIBILITY: SKIP TO CONTENT LINK
+   ========================================= */
+
+.skip-to-content {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 1001;
+    transition: top 0.3s ease-in-out, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 170, 255, 0.3);
+    border: none;
+    outline: none;
+}
+
+.skip-to-content:focus {
+    top: 80px;
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.skip-to-content:hover {
+    background: #0088cc;
+}
+
+/* Ensure focus is visible for keyboard navigation */
+*:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Remove outline for mouse users but keep for keyboard */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Main content area should be focusable for skip link */
+main:focus {
+    outline: none;
+}
+
+/* Enhanced skip link visibility */
+.skip-to-content.visible {
+    top: 80px !important;
+    opacity: 1 !important;
+    transform: translateX(-50%) scale(1.05) !important;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .skip-to-content {
+        border: 3px solid #000;
+        background: #fff;
+        color: #000;
+    }
+    
+    .skip-to-content:focus {
+        outline: 3px solid #000;
+        outline-offset: 3px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .skip-to-content {
+        transition: none;
+    }
+    
+    main {
+        scroll-behavior: auto;
+    }
+}

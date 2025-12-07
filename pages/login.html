@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="hacker-theme">
+
+    <!-- SKIP TO CONTENT LINK (ACCESSIBILITY) -->
+    <a href="#main-login" class="skip-to-content" id="skip-link">
+        <i class="fas fa-forward"></i> Skip to Main Content
+    </a>
     
     <canvas id="cyber-rain-canvas"></canvas>
 
@@ -21,7 +26,7 @@
     <script src="../js/navbar.js"></script>
     <script>renderNavbar('../');</script>
 
-    <div class="main-content">
+    <div class="main-content" id="main-login" tabindex="-1">
         <section class="login-hero">
             <div id="hacker-stats-overlay"></div>
             

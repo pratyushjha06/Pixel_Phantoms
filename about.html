@@ -14,11 +14,17 @@
 </head>
 <body class="hacker-theme">
 
-     <div id="navbar-placeholder"></div>
+    <!-- SKIP TO CONTENT LINK (ACCESSIBILITY) -->
+    <a href="#main-about" class="skip-to-content" id="skip-link">
+        <i class="fas fa-forward"></i> Skip to Main Content
+    </a>
+
+    <div id="navbar-placeholder"></div>
     <script src="js/navbar.js"></script>
     <script>renderNavbar();</script>
 
     <!-- ================= ABOUT SECTION ================= -->
+    <main id="main-about" tabindex="-1">
     <section class="content">
         <h2>About Pixel Phantoms</h2>
         <p>
@@ -125,6 +131,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <div id="footer-placeholder"></div>
     <script src="js/footer.js"></script>
