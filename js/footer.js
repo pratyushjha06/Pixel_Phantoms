@@ -34,7 +34,8 @@ function renderFooter(basePath = '') {
                 <div class="link-group">
                     <h3 class="link-group-title">Community</h3>
                     <ul class="link-list">
-                        <li><a href="${basePath}pages/leaderboard.html">Leaderboard</a></li> <li><a href="${basePath}pages/community.html">Community</a></li>
+                        <li><a href="${basePath}pages/leaderboard.html">Leaderboard</a></li>
+                        <li><a href="${basePath}pages/community.html">Community</a></li>
                         <li><a href="${basePath}pages/projects.html">Projects</a></li>
                         <li><a href="${basePath}pages/gallery.html">Gallery</a></li>
                         <li><a href="${basePath}pages/join-us.html">Join Us</a></li>
