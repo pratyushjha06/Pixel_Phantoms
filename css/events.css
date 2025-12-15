@@ -325,3 +325,33 @@
 .form-group input[type="date"] {
     cursor: pointer;
 }
+
+/* Register button for events*/
+
+.event-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-register {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.btn-register:hover {
+  background: #00ff88;
+  color: #000;
+}
+
+.countdown-note {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
