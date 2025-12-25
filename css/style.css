@@ -1407,6 +1407,13 @@ main#main-content {
     animation: slideUpFade 0.8s ease-out 0.4s both;
 }
 
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    animation: slideUpFade 0.8s ease-out 0.4s both;
+}
+
 .link-group-title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -1888,6 +1895,11 @@ main#main-content {
         padding: 0 2rem;
     }
     
+    .footer-links-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+    
     .footer-newsletter {
         grid-column: 1 / -1;
     }
@@ -2011,12 +2023,21 @@ main#main-content {
     }
     
     .footer-content {
+        grid-template-columns: 1fr;
         padding: 0 1rem;
+        gap: 2rem;
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
     
     .footer-bottom-content {
         padding: 0 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
     }
     
     .social-links {
@@ -2688,6 +2709,13 @@ main:focus {
     animation: slideUpFade 0.8s ease-out 0.4s both;
 }
 
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    animation: slideUpFade 0.8s ease-out 0.4s both;
+}
+
 .link-group-title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -3169,6 +3197,11 @@ main:focus {
         padding: 0 2rem;
     }
     
+    .footer-links-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+    
     .footer-newsletter {
         grid-column: 1 / -1;
     }
@@ -3292,12 +3325,21 @@ main:focus {
     }
     
     .footer-content {
+        grid-template-columns: 1fr;
         padding: 0 1rem;
+        gap: 2rem;
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
     
     .footer-bottom-content {
         padding: 0 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
     }
     
     .social-links {
@@ -4119,3 +4161,67 @@ main:focus {
     transform: none !important;
 }
 
+/* Electronic Signal Background */
+.signal-grid {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden; pointer-events: none;
+    z-index: 0;
+}
+
+/* Bolt Emission Animation */
+.bolt-emitter {
+    position: absolute;
+    width: 2px; height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+    opacity: 0;
+}
+
+.bolt-emitter.left { left: 10%; animation: boltRise 4s infinite ease-in; }
+.bolt-emitter.right { right: 10%; animation: boltRise 4s infinite ease-in 2s; }
+
+@keyframes boltRise {
+    0% { transform: translateY(100%); opacity: 0; }
+    20% { opacity: 1; filter: brightness(2); }
+    100% { transform: translateY(-100%); opacity: 0; }
+}
+
+/* Electronic Signal Lines */
+.signal-line.horizontal {
+    top: 0; left: 0; width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    animation: signalMove 3s infinite linear;
+}
+
+@keyframes signalMove {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Neon Text & Terminal Effects */
+.neon-text {
+    color: var(--text-primary);
+    text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+}
+
+.terminal-header {
+    font-family: 'JetBrains Mono', monospace;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+/* Cyber Input Field */
+.input-group-cyber {
+    display: flex;
+    border: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 4px;
+    transition: box-shadow 0.3s ease;
+}
+
+.input-group-cyber:focus-within {
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.4);
+    border-color: var(--accent-color);
+}
