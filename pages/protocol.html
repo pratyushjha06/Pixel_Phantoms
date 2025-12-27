@@ -2,69 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Pixel Phantoms | System Protocol V2</title>
-    
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/protocol.css">
-    <link rel="stylesheet" href="../css/back-to-top.css">
-    <link rel="stylesheet" href="../css/scroll-progress.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="dark-theme hud-mode hacker-theme">
-    <div id="scroll-progress-container">
-        <div id="scroll-progress-bar"></div>
-    </div>
-
+<body class="dark-theme hud-mode">
     <div id="navbar-placeholder"></div>
 
-    <main class="protocol-wrapper">
-        <header class="centered-header">
-            <h1 class="glitch-title" data-text="SYSTEM_PROTOCOL_V2">SYSTEM_PROTOCOL_V2</h1>
-            <div class="status-indicator">
-                <span class="pulse-node"></span>
-                <span class="status-code">CORE_LOGIC_ACTIVE</span>
+    <main class="protocol-page-root">
+        <div class="protocol-wrapper">
+            <header class="protocol-header">
+                <h1 class="glitch-title" data-text="SYSTEM_PROTOCOL_V2">SYSTEM_PROTOCOL_V2</h1>
+                <p class="status-text"><span class="pulse"></span> CORE_LOGIC_ACTIVE</p>
+            </header>
+
+            <div class="bento-container">
+                <section class="protocol-box blue-bone">
+                    <h3><i class="fas fa-microchip"></i> DOMINATION_METRIC</h3>
+                    <p>Scoring weighted by MCS logic: L3 (1100 XP), L2 (500 XP), L1 (200 XP).</p>
+                </section>
+
+                <section class="protocol-box purple-bone">
+                    <h3><i class="fas fa-shield-alt"></i> SECURITY_ENFORCEMENT</h3>
+                    <p>Mandatory Git-hook compliance and automated security scans for all candidates.</p>
+                </section>
             </div>
-        </header>
 
-        <div class="bento-container">
-            <section class="protocol-box" style="--accent-color: var(--neon-cyan);">
-                <h3 class="box-label"><i class="fas fa-microchip"></i> DOMINATION_METRIC</h3>
-                <p class="box-text">Scoring is weighted by the Multidimensional Contribution Score (MCS). Current PR Weights: L1 (200 XP), L2 (500 XP), L3 (1100 XP).</p>
-            </section>
-
-            <section class="protocol-box" style="--accent-color: var(--neon-purple);">
-                <h3 class="box-label"><i class="fas fa-shield-alt"></i> SECURITY_ENFORCEMENT</h3>
-                <ul class="box-list">
-                    <li>Standardized participation across all campus tiers.</li>
-                    <li>Mandatory security compliance for every code submission.</li>
-                </ul>
-            </section>
-        </div>
-
-        <div class="rules-footer">
-            <div class="protocol-box glowing-rule" style="width: 100%; border-left: 4px solid var(--neon-green); --accent-color: var(--neon-green);">
-                <h3 style="color: var(--neon-green);">SYSTEM_GUIDELINES</h3>
-                <p>Standardized 250 XP reward for verified attendance at community events.</p>
+            <div class="rules-section">
+                <div class="glowing-rule-card">
+                    <p><strong>GUIDELINE:</strong> Standardized 250 XP reward for verified attendance.</p>
+                </div>
             </div>
         </div>
     </main>
 
-    <div id="footer-placeholder"></div>
-
-    <button id="back-to-top" class="back-to-top" aria-label="Scroll to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
+    <div id="navbar-placeholder"></div>
+    
     <script src="../js/navbar.js"></script>
+    <script>renderNavbar('../');</script>
     <script src="../js/footer.js"></script>
-    <script src="../js/back-to-top.js"></script>
+    <script>renderFooter('../');</script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/protocol.js"></script>
     <script src="../js/scroll-progress.js"></script>
-    <script>
-        renderNavbar('../');
-        renderFooter('../');
-    </script>
+    <script src="../js/hud-mode.js"></script>
 </body>
 </html>

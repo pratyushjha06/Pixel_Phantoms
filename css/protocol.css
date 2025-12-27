@@ -1,60 +1,78 @@
-/* Centering and Visibility Logic */
-body {
-    margin: 0;
-    overflow-x: hidden;
-    background: #05070a; /* Static deep background */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+/* RESET & LAYOUT FIX */
+* {
+    box-sizing: border-box; /* Prevents padding from adding to width */
 }
 
-/* Removal of #signalCanvas styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Fixes the extra space on the right */
+    background: #05070a;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.protocol-page-root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 80px; /* Space from top */
+}
 
 .protocol-wrapper {
-    width: 90%;
-    max-width: 1200px;
-    padding: 120px 0; 
-    text-align: center;
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 1;
 }
 
+/* BOX DESIGN & VISIBILITY */
 .glitch-title {
-    font-size: 3.5rem;
-    font-family: 'Rajdhani', sans-serif;
-    color: #fff;
-    margin-bottom: 50px;
-    text-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+    font-size: clamp(2rem, 8vw, 4rem);
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 0 0 15px rgba(0, 170, 255, 0.6);
 }
 
 .bento-container {
-    display: flex;
-    gap: 40px; 
-    justify-content: center;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Equal distance around */
     width: 100%;
 }
 
 .protocol-box {
-    background: rgba(13, 17, 23, 0.9);
+    background: rgba(13, 17, 23, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 40px;
-    border-radius: 15px;
-    flex: 1;
-    min-width: 320px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    backdrop-filter: blur(15px);
-    color: #ffffff; 
-    text-align: left;
 }
 
+/* Action Plan: Glowing Behind & BONES feature on hover */
 .protocol-box:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 50px rgba(0, 170, 255, 0.2);
-    border: 2px solid var(--accent-color, #00aaff);
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(0, 170, 255, 0.2); /* Glow behind */
+}
+
+.blue-bone:hover { border: 2px solid #00aaff; }
+.purple-bone:hover { border: 2px solid #bc13fe; }
+
+/* Separated Rules with Glow */
+.rules-section {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.glowing-rule-card {
+    background: rgba(10, 255, 157, 0.05);
+    border: 1px solid rgba(10, 255, 157, 0.2);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(10, 255, 157, 0.1);
+    text-align: center;
 }
