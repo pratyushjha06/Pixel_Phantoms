@@ -6,14 +6,12 @@
     <title>Pixel Phantoms | Agent Profile</title>
     <link rel="icon" href="../assets/logo.png" />
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/scroll-progress.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/home-gsap.css" />
     <link rel="stylesheet" href="../css/back-to-top.css" />
     <link rel="stylesheet" href="../css/profile.css" />
 
-    <!-- Fonts & Icons -->
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
       rel="stylesheet"
@@ -28,24 +26,19 @@
       <div id="scroll-progress-bar"></div>
     </div>
 
-    <!-- SKIP TO CONTENT LINK (ACCESSIBILITY) -->
     <a href="#main-profile" class="skip-to-content" id="skip-link">
       <i class="fas fa-forward" aria-hidden="true"></i> Skip to Main Content
     </a>
 
-    <!-- Cyber Rain Canvas Background -->
     <canvas id="cyber-rain-canvas"></canvas>
 
-    <!-- Navbar -->
     <div id="navbar-placeholder"></div>
     <script src="../js/navbar.js"></script>
     <script>
       renderNavbar('../');
     </script>
 
-    <!-- Main Content -->
     <main class="main-content" id="main-profile" tabindex="-1">
-      <!-- Profile Hero Section -->
       <section class="profile-hero">
         <div class="grid-overlay" aria-hidden="true"></div>
         <div class="hero-content">
@@ -54,10 +47,8 @@
         </div>
       </section>
 
-      <!-- Profile Content -->
       <section class="profile-section">
         <div class="profile-container">
-          <!-- Profile Header Card -->
           <div class="profile-header-card" data-aos="fade-up">
             <div class="profile-avatar-wrapper">
               <div class="profile-avatar" id="profile-avatar">
@@ -81,15 +72,22 @@
               <button class="btn-cyber btn-edit" id="edit-profile-btn">
                 <i class="fas fa-edit"></i> EDIT_PROFILE
               </button>
+              
+              <a href="protocol.html" class="btn-cyber-outline">
+                <i class="fas fa-scroll"></i> SYSTEM_RULES
+              </a>
+
+              <a href="leaderboard.html" class="btn-cyber-outline">
+                <i class="fas fa-trophy"></i> GLOBAL_RANKINGS
+              </a>
+
               <button class="btn-cyber-outline btn-logout" id="logout-btn">
                 <i class="fas fa-sign-out-alt"></i> LOGOUT
               </button>
             </div>
           </div>
 
-          <!-- Profile Details & Activity Grid -->
           <div class="profile-grid">
-            <!-- User Details Card -->
             <div class="profile-card details-card" data-aos="fade-up" data-aos-delay="100">
               <div class="card-header">
                 <h3><i class="fas fa-info-circle"></i> AGENT_DETAILS</h3>
@@ -119,7 +117,6 @@
               </div>
             </div>
 
-            <!-- Community Activity Card -->
             <div class="profile-card activity-card" data-aos="fade-up" data-aos-delay="200">
               <div class="card-header">
                 <h3><i class="fas fa-chart-line"></i> COMMUNITY_ACTIVITY</h3>
@@ -167,7 +164,6 @@
               </div>
             </div>
 
-            <!-- Achievements Card -->
             <div class="profile-card achievements-card" data-aos="fade-up" data-aos-delay="300">
               <div class="card-header">
                 <h3><i class="fas fa-medal"></i> ACHIEVEMENTS</h3>
@@ -175,7 +171,6 @@
               </div>
               <div class="card-body">
                 <div class="achievements-grid" id="achievements-grid">
-                  <!-- Achievements will be loaded dynamically -->
                   <div class="achievement-item locked">
                     <i class="fas fa-lock"></i>
                     <span>First Login</span>
@@ -196,7 +191,6 @@
               </div>
             </div>
 
-            <!-- Recent Activity Card -->
             <div class="profile-card recent-activity-card" data-aos="fade-up" data-aos-delay="400">
               <div class="card-header">
                 <h3><i class="fas fa-history"></i> RECENT_ACTIVITY</h3>
@@ -204,7 +198,6 @@
               </div>
               <div class="card-body">
                 <div class="activity-timeline" id="activity-timeline">
-                  <!-- Activity items will be loaded dynamically -->
                   <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -220,14 +213,12 @@
       </section>
     </main>
 
-    <!-- Footer -->
     <div id="footer-placeholder"></div>
     <script src="../js/footer.js"></script>
     <script>
       renderFooter('../');
     </script>
 
-    <!-- Scripts -->
     <script src="../js/theme.js"></script>
     <script src="../js/back-to-top.js"></script>
     <script src="../js/profile.js"></script>
