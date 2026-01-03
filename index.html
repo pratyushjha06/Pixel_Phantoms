@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/scroll-progress.css" />
     <link rel="stylesheet" href="css/style.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/back-to-top.css" />
     <link rel="stylesheet" href="css/share-button.css" />
     <link rel="stylesheet" href="css/home-gsap.min.css" />
     <link rel="stylesheet" href="css/cursor-effect.css" />
@@ -23,6 +24,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
+
   <body class="hacker-theme">
     <div id="scroll-progress-container">
       <div id="scroll-progress-bar"></div>
@@ -508,11 +510,9 @@
     <script src="js/quick-stats.js"></script>
     <script src="js/theme-enhanced.js"></script>
     <script src="js/share-button.js"></script>
-
     <script>
       // Initialize quick stats widget for home page
       document.addEventListener('DOMContentLoaded', function () {
-        // Create a simplified version of the quick stats widget for home page
         window.refreshHomeStats = function () {
           const refreshBtn = document.querySelector('#home-quick-stats .widget-refresh');
           const icon = refreshBtn.querySelector('i');
@@ -526,12 +526,10 @@
           const eventsElement = document.getElementById('home-upcoming-events');
           const contributionsElement = document.getElementById('home-recent-contributions');
 
-          // Get current values
           const currentProjects = parseInt(projectsElement.textContent) || 8;
           const currentEvents = parseInt(eventsElement.textContent) || 3;
           const currentContributions = parseInt(contributionsElement.textContent) || 50;
 
-          // Generate new values (simulating actual data fetch)
           const newProjects = Math.max(1, currentProjects + Math.floor(Math.random() * 3) - 1);
           const newEvents = Math.max(1, currentEvents + Math.floor(Math.random() * 3) - 1);
           const newContributions = Math.max(
@@ -539,42 +537,34 @@
             currentContributions + Math.floor(Math.random() * 10) - 3
           );
 
-          // Animate the numbers
           animateValue(projectsElement, currentProjects, newProjects, 500);
           animateValue(eventsElement, currentEvents, newEvents, 500);
           animateValue(contributionsElement, currentContributions, newContributions, 500);
 
-          // Remove spinning animation after delay
           setTimeout(function () {
             icon.classList.remove('spinning');
             refreshBtn.disabled = false;
 
-            // Add success flash effect
             const widget = document.getElementById('home-quick-stats');
             widget.style.boxShadow = '0 0 20px rgba(0, 255, 136, 0.3)';
-            setTimeout(function () {
-              widget.style.boxShadow = '';
-            }, 1000);
+            setTimeout(() => (widget.style.boxShadow = ''), 1000);
           }, 1000);
         };
 
-        // Number animation function
         function animateValue(element, start, end, duration) {
           const range = end - start;
-          const increment = range / (duration / 16);
           let currentTime = 0;
-          const tick = function () {
+          const increment = range / (duration / 16);
+
+          function tick() {
             currentTime += 16;
             const progress = currentTime / duration;
             const value = Math.round(start + range * progress);
             element.textContent = value + (element.textContent.includes('+') ? '+' : '');
 
-            if (progress < 1) {
-              setTimeout(tick, 16);
-            } else {
-              element.textContent = end + (element.textContent.includes('+') ? '+' : '');
-            }
-          };
+            if (progress < 1) setTimeout(tick, 16);
+            else element.textContent = end + (element.textContent.includes('+') ? '+' : '');
+          }
           tick();
         }
       });
@@ -582,16 +572,24 @@
 
     <script src="js/feedback.js"></script>
     <script src="js/scroll-progress.js"></script>
+    <script src="js/feedback-widget.js"></script>
+    <style>
+      #feedback-panel {
+        margin-top: 50px;
+      }
+    </style>
 
     <div id="feedback-widget">
-      <button id="feedback-toggle" style="position: fixed; right: 30px; bottom: 100px">💬</button>
+
+      <button id="feedback-toggle" style="position: fixed; right: 30px; bottom: 100px">✉️</button>
+
 
       <div id="feedback-panel">
         <div class="ff-header">
           <h3>Send Feedback</h3>
           <button id="feedback-close" class="ff-close">✕</button>
         </div>
-        
+
         <form id="feedback-form">
           <label>Your Name</label>
           <input type="text" name="username" required />
@@ -622,7 +620,5 @@
         </form>
       </div>
     </div>
-
-    <script src="js/feedback-widget.js"></script>
   </body>
 </html>
