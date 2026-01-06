@@ -77,127 +77,129 @@
 :root .btn-hollow {
   --text-primary: white;
 }
+
 :root .btn-hollow:hover {
-  --text-primary: #00aaff;
+    --text-primary: #00aaff;
 }
 
-[data-theme='dark'] {
-  /* Dark theme variables */
-  --bg-primary: #0d0f14;
-  --bg-secondary: #13161d;
-  --bg-navbar: rgba(19, 22, 29, 0.95);
-  --bg-navbar-scrolled: rgba(19, 22, 29, 0.98);
-  --text-primary: #ffffff;
-  --text-secondary: #bbbbbb;
-  --accent-color: #00aaff;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --card-bg: #1a1d25;
-  --input-bg: #1a1d25;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --nav-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+[data-theme="dark"] {
+    /* Dark theme variables */
+    --bg-primary: #0d0f14;
+    --bg-secondary: #13161d;
+    --bg-navbar: rgba(19, 22, 29, 0.95);
+    --bg-navbar-scrolled: rgba(19, 22, 29, 0.98);
+    --text-primary: #ffffff;
+    --text-secondary: #bbbbbb;
+    --accent-color: #00aaff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --card-bg: #1a1d25;
+    --input-bg: #1a1d25;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --nav-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 
-  /* Footer Dark Theme Variables */
-  --footer-bg: #0f1419;
-  --footer-bg-secondary: #1a202c;
-  --footer-text: #e2e8f0;
-  --footer-text-secondary: #a0aec0;
-  --footer-heading: #ffffff;
-  --footer-link: #cbd5e0;
-  --footer-link-hover: #ffffff;
-  --footer-border: #2d3748;
-  --social-bg: #2d3748;
-  --social-bg-hover: #4a5568;
-  --social-icon: #cbd5e0;
-  --social-icon-hover: #ffffff;
-  --social-border: #4a5568;
-  --footer-input-bg: #2d3748;
-  --input-border: #4a5568;
-  --input-text: #e2e8f0;
-  --input-placeholder: #718096;
-  --accent-primary: #00aaff;
-  --accent-secondary: #0088cc;
+    /* Footer Dark Theme Variables */
+    --footer-bg: #0f1419;
+    --footer-bg-secondary: #1a202c;
+    --footer-text: #e2e8f0;
+    --footer-text-secondary: #a0aec0;
+    --footer-heading: #ffffff;
+    --footer-link: #cbd5e0;
+    --footer-link-hover: #ffffff;
+    --footer-border: #2d3748;
+    --social-bg: #2d3748;
+    --social-bg-hover: #4a5568;
+    --social-icon: #cbd5e0;
+    --social-icon-hover: #ffffff;
+    --social-border: #4a5568;
+    --footer-input-bg: #2d3748;
+    --input-border: #4a5568;
+    --input-text: #e2e8f0;
+    --input-placeholder: #718096;
+    --accent-primary: #00aaff;
+    --accent-secondary: #0088cc;
 
-  /* Neon colors for dark theme */
-  --neon-green: #0aff9d;
-  --neon-cyan: #00aaff;
-  --neon-purple: #bc13fe;
-  --neon-red: #ff003c;
+    /* Neon colors for dark theme */
+    --neon-green: #0aff9d;
+    --neon-cyan: #00aaff;
+    --neon-purple: #bc13fe;
+    --neon-red: #ff003c;
 
-  /* Stats Widget Variables for Dark Theme */
-  --panel-bg: rgba(26, 29, 37, 0.85);
-  --panel-border: 1px solid rgba(255, 255, 255, 0.1);
-  --text-main: #ffffff;
-  --text-dim: #bbbbbb;
-  --font-hud: 'JetBrains Mono', monospace;
-  --font-mono: 'JetBrains Mono', monospace;
+    /* Stats Widget Variables for Dark Theme */
+    --panel-bg: rgba(26, 29, 37, 0.85);
+    --panel-border: 1px solid rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-dim: #bbbbbb;
+    --font-hud: 'JetBrains Mono', monospace;
+    --font-mono: 'JetBrains Mono', monospace;
 
-  /* Shared UI Tokens for Consistency */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 20px;
-  --spacing-xl: 30px;
-  --spacing-xxl: 40px;
+    /* Shared UI Tokens for Consistency */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 40px;
 
-  --shadow-hover: 0 8px 25px rgba(0, 170, 255, 0.2);
-  --shadow-hover-strong: 0 12px 30px rgba(0, 170, 255, 0.3);
+    --shadow-hover: 0 8px 25px rgba(0, 170, 255, 0.2);
+    --shadow-hover-strong: 0 12px 30px rgba(0, 170, 255, 0.3);
 
-  --hover-transform: translateY(-5px);
-  --hover-transform-strong: translateY(-8px) scale(1.02);
+    --hover-transform: translateY(-5px);
+    --hover-transform-strong: translateY(-8px) scale(1.02);
 
-  --border-radius-sm: 8px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 16px;
-  --border-radius-xl: 20px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 20px;
 }
-[data-theme='dark'] .hack-main-card h3 {
-  --text-primary: #ffffff;
+
+[data-theme="dark"] .hack-main-card h3 {
+    --text-primary: #ffffff;
 }
+
 /* Light mode */
 #home-event-desc {
-  --text-primary: rgb(255, 255, 255);
-  color: var(--text-primary);
+    --text-primary: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
+
 /* Dark mode */
-[data-theme='dark'] #home-event-desc {
-  --text-primary: #ffffff;
+[data-theme="dark"] #home-event-desc {
+    --text-primary: #ffffff;
 }
 
 /*========================*/
 /* GENERAL */
 html {
-  overflow-x: hidden;
-  width: 100%;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-primary);
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  line-height: 1.6;
-  overflow-x: hidden;
-  width: 100%;
-  position: relative;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Global layout container */
 .container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
-  box-sizing: border-box;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
 }
 
 /* Ensure all headings use consistent fonts */
@@ -207,10 +209,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.3;
-  margin-top: 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 0;
 }
 
 /* Prevent body scroll when mobile menu is open */
