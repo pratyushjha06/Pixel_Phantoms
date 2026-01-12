@@ -33,15 +33,24 @@ class ApiError extends Error {
 const errorHandler = (err, req, res, next) => {
   // Default to 500 Internal Server Error if no status code is set
   const statusCode = err.statusCode || 500;
-  
+
   // Determine if we're in development or production
   const isDevelopment = process.env.NODE_ENV === 'development';
-  
+
+  // Determine if this is an operational (trusted) error
+  const isOperationalError = err instanceof ApiError || err.isOperational;
+
+  // Determine the public-facing error message
+  const publicMessage =
+    (isDevelopment || isOperationalError) && err.message
+      ? err.message
+      : 'Internal Server Error';
+
   // Base error response structure
   const errorResponse = {
     success: false,
     status: statusCode,
-    message: err.message || 'Internal Server Error',
+    message: publicMessage,
     timestamp: new Date().toISOString(),
     path: req.originalUrl,
   };
