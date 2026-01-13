@@ -202,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     registerForm?.addEventListener('submit', e => {
       e.preventDefault();
 
+      const inputs = registerForm?.querySelectorAll('input');
       let isValid = true;
       inputs?.forEach(input => {
         if (!input.checkValidity()) {
