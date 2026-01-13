@@ -173,10 +173,50 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === modal) closeModal();
     });
 
+    // Add input validation feedback
+    const inputs = registerForm?.querySelectorAll('input');
+    inputs?.forEach(input => {
+      const validate = () => {
+        if (input.value.trim() !== '') {
+          if (input.checkValidity()) {
+            input.classList.remove('invalid');
+            input.classList.add('valid');
+          } else {
+            input.classList.remove('valid');
+            input.classList.add('invalid');
+          }
+        } else {
+          input.classList.remove('valid', 'invalid');
+        }
+      };
+
+      input.addEventListener('input', validate);
+      input.addEventListener('blur', validate);
+      
+      input.addEventListener('invalid', (e) => {
+        e.preventDefault();
+        input.classList.add('invalid');
+      });
+    });
+
     registerForm?.addEventListener('submit', e => {
       e.preventDefault();
+
+      let isValid = true;
+      inputs?.forEach(input => {
+        if (!input.checkValidity()) {
+          input.classList.add('invalid');
+          isValid = false;
+        } else {
+          input.classList.add('valid');
+        }
+      });
+
+      if (!isValid) return;
+
       alert('Successfully registered!');
       registerForm.reset();
+      inputs?.forEach(input => input.classList.remove('valid', 'invalid'));
       closeModal();
     });
   })();
