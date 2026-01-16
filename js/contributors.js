@@ -324,30 +324,42 @@ function renderContributors(page) {
     paginatedItems.forEach((contributor, index) => {
         const globalRank = start + index + 1;
         const league = getLeagueData(contributor.points);
-        const card = document.createElement('div');
+        const card = document.createElement('article');
         card.className = `contributor-card ${league.tier}`;
         card.setAttribute('data-github', contributor.login);
-        card.addEventListener('click', () => openModal(contributor, league, globalRank));
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('tabindex', '0');
+
+        // Click and keyboard activation support
+        const open = () => openModal(contributor, league, globalRank);
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                open();
+            }
+        });
+
         card.innerHTML = `
-            <img src="${contributor.avatar_url}" alt="${contributor.login}">
+            <img src="${contributor.avatar_url}" alt="Avatar of ${contributor.login}">
             <span class="cont-name">${contributor.login}</span>
-            <span class="cont-commits-badge ${league.class}">
+            <span class="cont-commits-badge ${league.class}" aria-label="${contributor.prs} pull requests, ${contributor.points} points">
                 PRs: ${contributor.prs} | Pts: ${contributor.points}
             </span>
             
             <!-- GitHub Stats Section -->
-            <div class="github-stats">
-              <div class="stat-item skeleton">
+            <div class="github-stats" role="group" aria-label="GitHub statistics">
+              <div class="stat-item">
                 <span class="stat-icon">📦</span>
                 <span class="stat-value" data-stat="repos">0</span>
                 <span class="stat-label">Repos</span>
               </div>
-              <div class="stat-item skeleton">
+              <div class="stat-item">
                 <span class="stat-icon">👥</span>
                 <span class="stat-value" data-stat="followers">0</span>
                 <span class="stat-label">Followers</span>
               </div>
-              <div class="stat-item skeleton">
+              <div class="stat-item">
                 <span class="stat-icon">🔗</span>
                 <span class="stat-value" data-stat="following">0</span>
                 <span class="stat-label">Following</span>
@@ -355,7 +367,7 @@ function renderContributors(page) {
             </div>
             
             <!-- GitHub Contribution Calendar -->
-            <div class="contribution-section">
+            <div class="contribution-section" aria-hidden="true">
               <div class="github-calendar" data-username="${contributor.login}">
                 <span class="loading-text">Loading contributions...</span>
               </div>
@@ -367,6 +379,11 @@ function renderContributors(page) {
               <div class="repo-list"><span class="loading-text">Loading projects...</span></div>
             </div>
         `;
+
+        // entrance animation stagger
+        card.classList.add('animate');
+        card.style.animationDelay = `${index * 0.08}s`;
+
         grid.appendChild(card);
     });
     renderPaginationControls(page);

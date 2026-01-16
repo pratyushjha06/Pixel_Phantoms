@@ -155,44 +155,160 @@
 
 /* Base Card Style */
 .contributor-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 25px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    will-change: transform, box-shadow;
 }
 
-.contributor-card:hover {
-  transform: translateY(-5px);
+/* Hover / Focus (keyboard) */
+.contributor-card:hover,
+.contributor-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 255, 163, 0.06);
+    border-color: rgba(0, 255, 163, 0.18); /* subtle green highlight */
+    outline: none;
+}
+
+.contributor-card:focus-visible {
+    outline: 2px solid #00ffa3; /* green accent focus */
+    outline-offset: 2px;
+}
+
+/* Active / Pressed */
+.contributor-card:active {
+    transform: translateY(-2px) scale(0.99);
+    transition-duration: 0.12s;
 }
 
 .contributor-card img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 5px;
-  border: 3px solid transparent;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border: 3px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contributor-card:hover img,
+.contributor-card:focus-visible img {
+    transform: scale(1.03);
+    border-color: rgba(0, 255, 163, 0.85);
+    box-shadow: 0 6px 18px rgba(0, 255, 163, 0.06);
 }
 
 .cont-name {
-  font-weight: 700;
-  color: var(--text-primary);
-  font-size: 1.1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.125rem; /* 18px */
+    margin: 0;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+/* Stats and hierarchy */
+.contributor-card .github-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.contributor-card .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: transform 0.25s ease;
+}
+
+.contributor-card:hover .stat-value,
+.contributor-card:focus-visible .stat-value {
+    transform: scale(1.06);
+}
+
+/* Contribution graph */
+.contributor-card .contribution-section {
+    margin-top: 18px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba(0,0,0,0.02);
+}
+
+/* Links */
+.contributor-card .recent-repos .repo-list a {
+    color: #00ffa3;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .contributor-card {
+        padding: 16px;
+        gap: 12px;
+    }
+    .contributor-card img { width: 64px; height: 64px; }
+    .contributor-card:hover { transform: translateY(-2px); }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .contributor-card {
+        padding: 20px;
+        gap: 14px;
+    }
+    .contributor-card img { width: 72px; height: 72px; }
+}
+
+/* Entrance animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.contributor-card.animate {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .contributor-card,
+    .contributor-card img,
+    .stat-value {
+        transition-duration: 0.01s !important;
+        transform: none !important;
+        animation-duration: 0.01s !important;
+        animation: none !important;
+    }
+}
+
 
 /* Base Badge Style */
 .cont-commits-badge {
