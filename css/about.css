@@ -1112,6 +1112,33 @@ body.light-mode .motto-banner {
 }
 
 footer {
-  all: unset;
-  display: block;
+    all: unset;
+    display: block;
+}
+
+/*FINAL FIX: About Hero Text in Light Mode */
+
+/* Hero title */
+.light-mode .hero-title {
+  color: #0f172a;
+  text-shadow: none;
+}
+
+/* Motto banner text */
+.light-mode .motto-main {
+  color: #111111;
+  text-shadow: none;
+}
+
+.light-mode .motto-subtitle {
+  color: #333333;
+}
+
+/* Improve motto card contrast */
+.light-mode .motto-banner {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: none;
+
+  
 }
